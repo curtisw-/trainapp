@@ -20,6 +20,31 @@ class CSVTest extends PHPUnit_Framework_TestCase {
 		$csv = new CSV($file);
 	}
 
+	public function testFileRead() {
+		$file = tempnam("/tmp", "csv");
+		
+		$contents = <<<END
+first, second
+third
+fourth, fifth
+END;
+		$data = array(
+			array("first", "second"),
+			array("third"),
+			array("fourth", "fifth"));
+		
+		file_put_contents($file, $contents);
+		$csv = new CSV($file);
+		$i = 0;
+		while(($row = $csv->getNextRow()) !== false) {
+			for($j = 0; $j < count($row); ++$j) {
+				$this->assertEquals($data[$i][$j], $row[$j]);
+			}
+			$i++;
+		}
+		$this->assertEquals($i, count($data));
+	}
+
 }
 
 ?>

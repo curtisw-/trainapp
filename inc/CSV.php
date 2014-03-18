@@ -1,5 +1,5 @@
 <?php
-
+// Parse a CSV file and return each row in turn.
 
 class UnreadableFileException extends Exception { }
 
@@ -13,6 +13,10 @@ class CSV {
 		if(!$handle) {
 			throw new UnreadableFileException();
 		}
+	}
+	
+	public function getNextRow() {
+		return false;
 	}
 
 }
