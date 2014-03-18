@@ -21,4 +21,5 @@ CREATE TABLE traindata (id INT NOT NULL AUTO_INCREMENT, line VARCHAR(100), route
 Unit Tests
 ----------
 
-The unit tests are in tests/, and may be run using the latest PHPUnit.
+The unit tests are in tests/, and may be run using the latest PHPUnit. Make sure
+to run them in trainsapp/ and not tests/.
