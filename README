@@ -9,3 +9,10 @@ on localhost, with no password, and with the follow commands having been run.
 CREATE DATABASE traindata;
 
 CREATE TABLE traindata (id INT NOT NULL AUTO_INCREMENT, line VARCHAR(100), route VARCHAR(100), run VARCHAR(100), operatorid VARCHAR(100), PRIMARY KEY (id));
+
+CREATE TABLE traintest (id INT NOT NULL AUTO_INCREMENT, line VARCHAR(100), route VARCHAR(100), run VARCHAR(100), operatorid VARCHAR(100), PRIMARY KEY (id));
+
+Unit Tests
+----------
+
+The unit tests are in tests/, and may be run using the latest PHPUnit.
