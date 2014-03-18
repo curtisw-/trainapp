@@ -1,1 +1,11 @@
 A simple train information application.
+
+MySQL setup
+-----------
+
+MySQL is used to store and retrieve the train data. The server is assumed to be
+on localhost, with no password, and with the follow commands having been run.
+
+CREATE DATABASE traindata;
+
+CREATE TABLE traindata (id INT NOT NULL AUTO_INCREMENT, line VARCHAR(100), route VARCHAR(100), run VARCHAR(100), operatorid VARCHAR(100), PRIMARY KEY (id));
