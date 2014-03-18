@@ -1,9 +1,9 @@
 <?php
-// Parse a CSV file and return each row in turn.
 
 class UnreadableFileException extends Exception { }
 
-
+// Parse a CSV file and return each row in turn.
+// Return false when there are no more rows.
 class CSV {
 
 	private $handle;
@@ -15,8 +15,14 @@ class CSV {
 		}
 	}
 	
+	public function __destruct() {
+		fclose($handle);
+	}
+	
 	public function getNextRow() {
-		return false;
+		$values = fgetcsv($handle);
+		
+		return $values;
 	}
 
 }
