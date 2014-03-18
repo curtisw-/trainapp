@@ -24,13 +24,13 @@ class CSVTest extends PHPUnit_Framework_TestCase {
 		$file = tempnam("/tmp", "csv");
 		
 		$contents = <<<END
-first, second
-third
+first, sec ond
+"third,"
 fourth, fifth
 END;
 		$data = array(
-			array("first", "second"),
-			array("third"),
+			array("first", "sec ond"),
+			array("third,"),
 			array("fourth", "fifth"));
 		
 		file_put_contents($file, $contents);
