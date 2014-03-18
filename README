@@ -8,9 +8,13 @@ on localhost, with no password, and with the follow commands having been run.
 
 CREATE DATABASE traindata;
 
+USE traindata;
+
 CREATE TABLE traindata (id INT NOT NULL AUTO_INCREMENT, line VARCHAR(100), route VARCHAR(100), run VARCHAR(100), operatorid VARCHAR(100), PRIMARY KEY (id));
 
 CREATE DATABASE traintest;
+
+USE traintest;
 
 CREATE TABLE traindata (id INT NOT NULL AUTO_INCREMENT, line VARCHAR(100), route VARCHAR(100), run VARCHAR(100), operatorid VARCHAR(100), PRIMARY KEY (id));
 
