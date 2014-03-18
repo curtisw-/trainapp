@@ -9,18 +9,18 @@ class CSV {
 	private $handle;
 
 	public function __construct($filename) {
-		$handle = @fopen($filename, "r");
-		if(!$handle) {
+		$this->handle = @fopen($filename, "r");
+		if(!$this->handle) {
 			throw new UnreadableFileException();
 		}
 	}
 	
 	public function __destruct() {
-		fclose($handle);
+		fclose($this->handle);
 	}
 	
 	public function getNextRow() {
-		$values = fgetcsv($handle);
+		$values = fgetcsv($this->handle);
 		
 		return $values;
 	}
