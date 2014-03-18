@@ -38,7 +38,7 @@ END;
 		$i = 0;
 		while(($row = $csv->getNextRow()) !== false) {
 			for($j = 0; $j < count($row); ++$j) {
-				$this->assertEquals($data[$i][$j], $row[$j]);
+				$this->assertEquals(trim($data[$i][$j]), trim($row[$j]));
 			}
 			$i++;
 		}
