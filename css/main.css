@@ -1,0 +1,38 @@
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: georgia, sans-serif;
+}
+
+#header {
+	width: 100%;
+	background-color: #000;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 2em;
+}
+
+#header h3 {
+	margin: 0;
+	padding: 0.5em;
+}
+
+#traindata table {
+	width: 100%;
+}
+
+#traindata table th {
+	text-align: left;
+}
+
+#traindata {
+	padding-bottom: 3em;
+}
+
+#contents {
+	width: 35em;
+	margin-left: auto;
+	margin-right: auto;
+}
