@@ -13,6 +13,12 @@ class CSVTest extends PHPUnit_Framework_TestCase {
 		unlink($file);
 		$csv = new CSV($file);
 	}
+	
+	public function testSuccessOnExtantFile() {
+		$file = tempnam("/tmp", "csv");
+		file_put_contents($file, "");
+		$csv = new CSV($file);
+	}
 
 }
 
