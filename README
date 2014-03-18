@@ -10,7 +10,9 @@ CREATE DATABASE traindata;
 
 CREATE TABLE traindata (id INT NOT NULL AUTO_INCREMENT, line VARCHAR(100), route VARCHAR(100), run VARCHAR(100), operatorid VARCHAR(100), PRIMARY KEY (id));
 
-CREATE TABLE traintest (id INT NOT NULL AUTO_INCREMENT, line VARCHAR(100), route VARCHAR(100), run VARCHAR(100), operatorid VARCHAR(100), PRIMARY KEY (id));
+CREATE DATABASE traintest;
+
+CREATE TABLE traindata (id INT NOT NULL AUTO_INCREMENT, line VARCHAR(100), route VARCHAR(100), run VARCHAR(100), operatorid VARCHAR(100), PRIMARY KEY (id));
 
 Unit Tests
 ----------
