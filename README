@@ -22,4 +22,4 @@ Unit Tests
 ----------
 
 The unit tests are in tests/, and may be run using the latest PHPUnit. Make sure
-to run them in trainsapp/ and not tests/.
+to run them in trainapp/ and not tests/.
