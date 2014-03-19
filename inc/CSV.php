@@ -2,8 +2,7 @@
 
 class UnreadableFileException extends Exception { }
 
-// Parse a CSV file and return each row in turn.
-// Return false when there are no more rows.
+// Load a CSV file
 class CSV {
 
 	private $handle;
@@ -19,6 +18,9 @@ class CSV {
 		fclose($this->handle);
 	}
 	
+	// Return the next row as an array, or false if none exists.
+	// Keep in mind fgetcsv also returns false on error, but
+	// that's fine for what we need it for.
 	public function getNextRow() {
 		return fgetcsv($this->handle);
 	}
