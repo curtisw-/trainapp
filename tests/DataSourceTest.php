@@ -1,4 +1,5 @@
 <?php
+// Test the DataSource class using the test DataBase - 'traintest'
 
 require_once 'inc/DataSource.php';
 
