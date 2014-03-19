@@ -10,7 +10,8 @@ try {
 	
 		$csv = new CSV($filename);
 		
-		// The first row should be a header row
+		// The first row should be a header row containing the follow
+		// in some order: TRAIN_LINE, ROUTE_NAME, RUN_NUMBER, OPERATOR_ID
 		$row = $csv->getNextRow();
 		$mapping = array();
 		foreach($row as $i => $item) {
