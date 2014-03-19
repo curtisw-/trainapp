@@ -7,6 +7,7 @@ class DataSourceTest extends PHPUnit_Framework_TestCase {
 	private $testdb = "traintest";
 
 	public function testConnectSuccess() {
+		// Make sure there are no errors initializing the data source
 		$datasource = new DataSource($this->testdb);
 	}
 	
@@ -14,12 +15,14 @@ class DataSourceTest extends PHPUnit_Framework_TestCase {
 	 * @expectedException DBConnectionException
 	 */
 	public function testConnectFailure() {
+		// Ensure an exception is thrown given a nonexistant database name
 		$datasource = new DataSource("nonexistantdbname");
 	}
 	
 	public function testReadWrite() {
 		$datasource = new DataSource($this->testdb);
 		
+		// Remove all the rows in the database
 		$data = $datasource->getData();
 		
 		foreach($data as $row) {
@@ -28,6 +31,7 @@ class DataSourceTest extends PHPUnit_Framework_TestCase {
 		
 		$this->assertEquals(0, count($datasource->getData()));
 		
+		// Then check to make sure we can add data
 		$datasource->addData("cta", "red", "10A", "Dave");
 		
 		$data = $datasource->getData();
@@ -41,6 +45,7 @@ class DataSourceTest extends PHPUnit_Framework_TestCase {
 	}
 	
 	public function testDuplicates() {
+		// Check to make sure rows cannot be duplicated
 		$datasource = new DataSource($this->testdb);
 		
 		$datasource->addData("metra", "electric", "6C", "Steve");
