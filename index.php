@@ -30,8 +30,10 @@
 			</div>
 		
 			<div id="uploadform">
-				<form method="POST" action="uploadcsv.php">
-					<label>Upload data: <input type="file" name="csv"></label>
+				<form enctype="multipart/form-data" method="POST" action="uploadcsv.php">
+					<input type="hidden" name="MAX_FILE_SIZE" value="30000">
+					<input type="file" name="csv">
+					<input type="submit" value="Upload">
 				</form>
 			</div>
 		</div>

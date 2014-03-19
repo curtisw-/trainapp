@@ -7,8 +7,8 @@ class DataSource {
 	private $conn;
 	
 	
-	public function __construct($dbname) {
-		$this->conn = @new mysqli('localhost', 'root', 'password', $dbname);
+	public function __construct($dbname, $host = 'localhost', $user = 'root', $pass = 'password') {
+		$this->conn = @new mysqli($host, $user, $pass, $dbname);
 		
 		if($this->conn->connect_error) {
 			throw new DBConnectionException($this->conn->connect_error);
