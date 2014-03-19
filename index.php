@@ -20,12 +20,26 @@
 						<th>Run Number</th>
 						<th>Operator ID</th>
 					</tr>
-					<tr>
-						<td>line1</t>
-						<td>apples</td>
-						<td>403d</td>
-						<td>Henry</td>
-					</tr>
+					
+					<?php
+					require_once 'inc/DataSource.php';
+					
+					$datasource = new DataSource("traindata");
+					
+					$data = $datasource->getData();
+					foreach($data as $row) {
+						echo "<tr>";
+						printf(
+							str_repeat("<td>%s</td>", 4),
+							$row["line"],
+							$row["route"],
+							$row["run"],
+							$row["operatorid"]);
+						echo "</tr>";
+					}
+					
+					?>
+					
 				</table>
 			</div>
 		

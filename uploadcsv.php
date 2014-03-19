@@ -29,7 +29,11 @@ try {
 			);
 		}
 	}
-} catch(Exception e) {
+} catch(Exception $e) {
 	/* ignore errors */
 }
+
+// Redirect the user back to the main interface.
+header('Location: index.php');
+
 ?>
