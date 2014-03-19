@@ -4,7 +4,7 @@ MySQL setup
 -----------
 
 MySQL is used to store and retrieve the train data. The server is assumed to be
-on localhost, with no password, and with the follow commands having been run.
+on localhost, with a root password of 'password', and with the follow commands having been run.
 
 CREATE DATABASE traindata;
 

@@ -20,9 +20,7 @@ class CSV {
 	}
 	
 	public function getNextRow() {
-		$values = fgetcsv($this->handle);
-		
-		return $values;
+		return fgetcsv($this->handle);
 	}
 
 }
