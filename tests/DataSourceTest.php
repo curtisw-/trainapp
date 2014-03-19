@@ -38,6 +38,26 @@ class DataSourceTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals("10A", $row["run"]);
 		$this->assertEquals("Dave", $row["operatorid"]);
 	}
+	
+	public function testDuplicates() {
+		$datasource = new DataSource($this->testdb);
+		
+		$datasource->addData("metra", "electric", "6C", "Steve");
+		$datasource->addData("metra", "electric", "6C", "Steve");
+		
+		$data = $datasource->getData();
+		$count = 0;
+		foreach($data as $row) {
+			if($row["line"] == "metra" &&
+				$row["route"] == "electric" &&
+				$row["run"] == "6C" &&
+				$row["operatorid"] == "Steve") {
+				$count++;	
+			}
+		}
+		
+		$this->assertEquals($count, 1);
+	}
 }
 
 ?>
