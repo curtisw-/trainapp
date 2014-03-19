@@ -6,6 +6,7 @@ class DBConnectionException extends Exception { }
 class DataSource {
 	private $conn;
 	
+	
 	public function __construct($dbname) {
 		$this->conn = @new mysqli('localhost', 'root', 'password', $dbname);
 		
@@ -14,9 +15,11 @@ class DataSource {
 		}
 	}
 	
+	
 	public function __destruct() {
 		$this->conn->close();
 	}
+	
 	
 	// Retrieve all train data
 	public function getData() {
@@ -36,6 +39,7 @@ class DataSource {
 		return $data;
 	}
 	
+	
 	// Add additional train data
 	public function addData($line, $route, $run, $operatorid) {
 		$eline = $this->conn->escape_string($line);
@@ -43,8 +47,25 @@ class DataSource {
 		$erun = $this->conn->escape_string($run);
 		$eoperatorid = $this->conn->escape_string($operatorid);
 		
+		// First check to make sure the row doesn't already exist
 		$query = <<<END
-INSERT IGNORE INTO traindata (line, route, run, operatorid) 
+SELECT * FROM traindata 
+WHERE line = '$eline'
+AND route = '$eroute'
+AND run = '$erun'
+AND operatorid = '$eoperatorid' 	
+END;
+
+		$result = $this->conn->query($query);
+		if(!$result)
+			throw new DBConnectionException("Failure inserting data");
+			
+		if($result->fetch_object() !== null)
+			return;	
+		
+		// Then insert it into the database
+		$query = <<<END
+INSERT INTO traindata (line, route, run, operatorid) 
 VALUES ('$eline', '$eroute', '$erun', '$eoperatorid')
 END;
 		
@@ -52,6 +73,7 @@ END;
 		if($result !== true)
 			throw new DBConnectionException("Failure inserting data");
 	}
+	
 	
 	// Remove a row of data given an id
 	public function remove($id) {
